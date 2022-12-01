@@ -5,11 +5,12 @@ import About from './pages/About'
 import NotFound from './pages/NotFound'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
-
+import {GithubProvider} from './context/github/GithubContext' //once you do this need to wrap router in the Provider
 
 
 function App() {
   return ( // the /* here is to catch all the Notfound pages
+  <GithubProvider>
     <Router>
       <div className='flex flex-col justify-between h-screen'>
         <Navbar />
@@ -25,6 +26,8 @@ function App() {
       </div>
       <Footer />
     </Router>
+  </GithubProvider>
+
   );
 }
 
