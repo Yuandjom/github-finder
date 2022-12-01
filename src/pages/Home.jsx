@@ -1,12 +1,12 @@
 import React from 'react'
 import UserResults from '../components/users/UserResults'
-
+import UserSearch from '../components/users/UserSearch'
 function Home() {
     return (
-        <div>
-            {/* Search COMPONENT */}
+        <>
+            <UserSearch />
             <UserResults />
-        </div>
+        </>
     )
 }
 
