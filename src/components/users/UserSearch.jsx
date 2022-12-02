@@ -6,7 +6,7 @@ import GithubContext from '../../context/github/GithubContext'
 function UserSearch() {
     const [text, setText] = useState('') //note that the state is set in the input 
 
-    const { users, searchUsers } = useContext(GithubContext) //destructure from the GithubContext (get the functions)
+    const { users, searchUsers, clearUsers } = useContext(GithubContext) //destructure from the GithubContext (get the functions)
 
     const handleChange = (e) => setText(e.target.value) //this means as we type, the state is changed according in the components
 
@@ -44,7 +44,8 @@ function UserSearch() {
             {/**show the clear button if user is > 0 */}
             {users.length > 0 && (
                 <div>
-                    <button className="btn btn-ghost btn-lg">
+                    {/**meed to use the event handler here */}
+                    <button onClick={clearUsers} className="btn btn-ghost btn-lg">
                         Clear
                     </button>
                 </div>
