@@ -9,6 +9,12 @@ const githubReducer = (state, action) => {
                 users: action.payload, //note that this should be users not user cos u need to get back the payload 
                 loading: false,
             }
+        case 'GET_USER':
+            return{
+                ...state, 
+                user: action.payload, 
+                loading: false,
+            }
         case 'SET_LOADING':
             return {
                 //return the current state
