@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useContext } from 'react'
 import GithubContext from '../../context/github/GithubContext'
+import AlertContext from '../../context/alert/AlertContext'
 //note that usually for componenets they will have their own state
 
 function UserSearch() {
@@ -8,13 +9,15 @@ function UserSearch() {
 
     const { users, searchUsers, clearUsers } = useContext(GithubContext) //destructure from the GithubContext (get the functions)
 
+    const { setAlert } = useContext(AlertContext)
+
     const handleChange = (e) => setText(e.target.value) //this means as we type, the state is changed according in the components
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
         if (text === '') {
-            alert('Please enter something')
+            setAlert('Please enter something', 'error')
         } else {
             searchUsers(text)
 

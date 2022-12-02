@@ -6,6 +6,7 @@ const GithubContext = createContext()
 const GITHHUB_URL = process.env.REACT_APP_GITHUB_URL
 const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN
 
+//this the Provider
 export const GithubProvider = ({children}) => {
     //create an initialstate
     const initialState = {
@@ -53,11 +54,9 @@ export const GithubProvider = ({children}) => {
         type: 'SET_LOADING'
     })
 
-
-
     return <GithubContext.Provider 
         value={{ //this the is return here, which is all the state
-            users: state.users, 
+            users: state.users, //need to use the dot notation here cos state is an object 
             loading: state.loading, 
             searchUsers,
             clearUsers, 
