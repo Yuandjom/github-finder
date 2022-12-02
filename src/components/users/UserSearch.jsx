@@ -6,7 +6,7 @@ import GithubContext from '../../context/github/GithubContext'
 function UserSearch() {
     const [text, setText] = useState('') //note that the state is set in the input 
 
-    const { users } = useContext(GithubContext) //destructure from the GithubContext
+    const { users, searchUsers } = useContext(GithubContext) //destructure from the GithubContext (get the functions)
 
     const handleChange = (e) => setText(e.target.value) //this means as we type, the state is changed according in the components
 
@@ -16,7 +16,7 @@ function UserSearch() {
         if (text === '') {
             alert('Please enter something')
         } else {
-            //@todo -search users
+            searchUsers(text)
 
             setText('')
         }
